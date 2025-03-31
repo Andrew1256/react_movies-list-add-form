@@ -16,7 +16,10 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   });
 
   const isFormValid =
-    formData.title && formData.imgUrl && formData.imdbUrl && formData.imdbId;
+    formData.title.trim() &&
+    formData.imgUrl.trim() &&
+    formData.imdbUrl.trim() &&
+    formData.imdbId.trim();
 
   const handleChange = (name: keyof Movie, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
